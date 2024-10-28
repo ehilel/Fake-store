@@ -1,15 +1,16 @@
-import styles from './Jewelery.module.css';
-import { getJeweleryProducts } from '../../service/store';
+import styles from './CategoryPage.module.css';
+import { getProductsByCategory } from '../../service/store';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-const Jewelery = () => {
+const CategoryPage = () => {
     const [products, setProducts] = useState([]);
+    const { category } = useParams(); 
     
     useEffect(() => {
-        getJeweleryProducts()
+        getProductsByCategory(category)
             .then((res) => { setProducts(res); });
-    }, []);
+    }, [category]);
 
     return (
         <div className={styles.pageContainer}>
@@ -17,16 +18,16 @@ const Jewelery = () => {
                 <h2>Categories</h2>
                 <ul>
                     <li>
-                        <Link to="/Electronics">Electronics</Link>
+                        <Link to="/category/electronics">Electronics</Link>
                     </li>
                     <li>
-                        <Link to="/Jewelery">Jewelery</Link>
+                        <Link to="/category/jewelery">Jewelery</Link>
                     </li>
                 </ul>
             </div>
 
             <div className={styles.content}>
-                <h1>Jewelerys</h1>
+                <h1>{category.charAt(0).toUpperCase() + category.slice(1)}</h1>
                 {products.length > 0 ? (
                     <div className={styles.cardContainer}>
                         {products.map(product => (
@@ -41,12 +42,11 @@ const Jewelery = () => {
                         ))}
                     </div>
                 ) : (
-                    <h2>No jewelerys products found</h2>
+                    <h2>No products found</h2>
                 )}
             </div>
         </div>
     );
 };
 
-export default Jewelery;
-
+export default CategoryPage;
