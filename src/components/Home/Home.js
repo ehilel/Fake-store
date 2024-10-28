@@ -18,6 +18,12 @@ const Home = () => {
                         <h3>Jewelery</h3>
                     </Link>
                 </div>
+                <div className={styles.category}>
+                    <Link to="/category/books">
+                        <img src="https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-4.1.0&q=45&auto=format&w=754&fit=clip" alt="Books" />
+                        <h3>Books</h3>
+                    </Link>
+                </div>
             </div>
         </div>
     );

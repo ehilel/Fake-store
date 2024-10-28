@@ -1,5 +1,5 @@
 import styles from './CategoryPage.module.css';
-import { getProductsByCategory } from '../../service/store';
+import { getProductsByCategory, getProductsByCategory1 } from '../../service/store';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
@@ -8,8 +8,15 @@ const CategoryPage = () => {
     const { category } = useParams(); 
     
     useEffect(() => {
-        getProductsByCategory(category)
+        if(category === "books"){
+            console.log({category});
+            getProductsByCategory1()
             .then((res) => { setProducts(res); });
+        }
+        else{
+            getProductsByCategory(category)
+            .then((res) => { setProducts(res); });
+        }
     }, [category]);
 
     return (
@@ -22,6 +29,9 @@ const CategoryPage = () => {
                     </li>
                     <li>
                         <Link to="/category/jewelery">Jewelery</Link>
+                    </li>
+                    <li>
+                        <Link to="/category/books">Books</Link>
                     </li>
                 </ul>
             </div>
