@@ -1,0 +1,82 @@
+/* מבנה כללי של העמוד */
+.pageContainer {
+    display: flex;
+}
+
+/* סיידבר */
+.sidebar {
+    width: 200px;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.sidebar a:hover {
+    color: #0056b3;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
